@@ -1,0 +1,14 @@
+﻿  classdef.cpp
+  gogogo.cpp
+  ICard.h
+  IPlayer.h
+D:\Tsinghua Studying Life\Programming\gogogo\BoardPosition.h(26,24): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“IPlayer.h”)
+  
+  IUnit.h
+D:\Tsinghua Studying Life\Programming\gogogo\BoardPosition.h(26,24): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“IUnit.h”)
+  
+  正在生成代码...
+MSVCRTD.lib(exe_main.obj) : error LNK2019: 无法解析的外部符号 main，函数 "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) 中引用了该符号
+D:\Tsinghua Studying Life\Programming\gogogo\x64\Debug\gogogo.exe : fatal error LNK1120: 1 个无法解析的外部命令
