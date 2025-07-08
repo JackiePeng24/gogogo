@@ -133,7 +133,9 @@
     <ClCompile Include="Unit.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Board.h" />
     <ClInclude Include="BoardPosition.h" />
+    <ClInclude Include="CardFoctory.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="GameConstants.h" />
     <ClInclude Include="Tower.h" />

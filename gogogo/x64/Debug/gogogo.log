@@ -1,14 +1,163 @@
-﻿  classdef.cpp
-  gogogo.cpp
-  ICard.h
-  IPlayer.h
-D:\Tsinghua Studying Life\Programming\gogogo\BoardPosition.h(26,24): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
-  (编译源文件“IPlayer.h”)
+﻿  gogogo.cpp
+  Card.h
+D:\TsinghuaStudyingLife\gogogo\BoardPosition.h(26,24): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“Card.h”)
   
-  IUnit.h
-D:\Tsinghua Studying Life\Programming\gogogo\BoardPosition.h(26,24): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
-  (编译源文件“IUnit.h”)
+D:\TsinghuaStudyingLife\gogogo\Board.h(51,16): error C2665: “std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back”: 没有重载函数可以转换所有参数类型
+  (编译源文件“Card.h”)
+      D:\Program Files\vs studio\VC\Tools\MSVC\14.43.34808\include\vector(921,23):
+      可能是“void std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back(_Ty &&)”
+          with
+          [
+              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
+          ]
+          D:\TsinghuaStudyingLife\gogogo\Board.h(51,16):
+          “void std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back(_Ty &&)”: 无法将参数 1 从“std::vector<Tower,std::allocator<Tower>>”转换为“_Ty &&”
+          with
+          [
+              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
+          ]
+              D:\TsinghuaStudyingLife\gogogo\Board.h(51,35):
+              原因如下: 无法从“std::vector<Tower,std::allocator<Tower>>”转换为“_Ty”
+          with
+          [
+              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
+          ]
+              D:\TsinghuaStudyingLife\gogogo\Board.h(51,35):
+              没有可用于执行该转换的用户定义的转换运算符，或者无法调用该运算符
+      D:\Program Files\vs studio\VC\Tools\MSVC\14.43.34808\include\vector(917,23):
+      或    “void std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back(const _Ty &)”
+          with
+          [
+              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
+          ]
+          D:\TsinghuaStudyingLife\gogogo\Board.h(51,16):
+          “void std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back(const _Ty &)”: 无法将参数 1 从“std::vector<Tower,std::allocator<Tower>>”转换为“const _Ty &”
+          with
+          [
+              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
+          ]
+              D:\TsinghuaStudyingLife\gogogo\Board.h(51,35):
+              原因如下: 无法从“std::vector<Tower,std::allocator<Tower>>”转换为“const _Ty”
+          with
+          [
+              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
+          ]
+              D:\TsinghuaStudyingLife\gogogo\Board.h(51,35):
+              没有可用于执行该转换的用户定义的转换运算符，或者无法调用该运算符
+      D:\TsinghuaStudyingLife\gogogo\Board.h(51,16):
+      尝试匹配参数列表“(std::vector<Tower,std::allocator<Tower>>)”时
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(55,9): error C2065: “Unit”: 未声明的标识符
+D:\TsinghuaStudyingLife\gogogo\Card.h(55,15): error C2065: “unit”: 未声明的标识符
+D:\TsinghuaStudyingLife\gogogo\Card.h(55,22): error C2653: “UnitFactory”: 不是类或命名空间名称
+D:\TsinghuaStudyingLife\gogogo\Card.h(55,35): error C3861: “createUnit”: 找不到标识符
+D:\TsinghuaStudyingLife\gogogo\Card.h(56,9): error C2065: “unit”: 未声明的标识符
+D:\TsinghuaStudyingLife\gogogo\Card.h(59,24): error C2065: “unit”: 未声明的标识符
+D:\TsinghuaStudyingLife\gogogo\Card.h(84,22): error C2440: “初始化”: 无法从“Board *”转换为“Board &”
+D:\TsinghuaStudyingLife\gogogo\Card.h(87,51): error C2039: "getUnitsInRange": 不是 "Board" 的成员
+      D:\TsinghuaStudyingLife\gogogo\Board.h(6,7):
+      参见“Board”的声明
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(87,51): error C3861: “getUnitsInRange”: 找不到标识符
+D:\TsinghuaStudyingLife\gogogo\Card.h(90,13): error C2065: “spellType”: 未声明的标识符
+D:\TsinghuaStudyingLife\gogogo\Card.h(95,18): error C2065: “spellType”: 未声明的标识符
+  Player.h
+D:\TsinghuaStudyingLife\gogogo\BoardPosition.h(26,24): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Board.h(51,16): error C2665: “std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back”: 没有重载函数可以转换所有参数类型
+  (编译源文件“Player.h”)
+      D:\Program Files\vs studio\VC\Tools\MSVC\14.43.34808\include\vector(921,23):
+      可能是“void std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back(_Ty &&)”
+          with
+          [
+              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
+          ]
+          D:\TsinghuaStudyingLife\gogogo\Board.h(51,16):
+          “void std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back(_Ty &&)”: 无法将参数 1 从“std::vector<Tower,std::allocator<Tower>>”转换为“_Ty &&”
+          with
+          [
+              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
+          ]
+              D:\TsinghuaStudyingLife\gogogo\Board.h(51,35):
+              原因如下: 无法从“std::vector<Tower,std::allocator<Tower>>”转换为“_Ty”
+          with
+          [
+              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
+          ]
+              D:\TsinghuaStudyingLife\gogogo\Board.h(51,35):
+              没有可用于执行该转换的用户定义的转换运算符，或者无法调用该运算符
+      D:\Program Files\vs studio\VC\Tools\MSVC\14.43.34808\include\vector(917,23):
+      或    “void std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back(const _Ty &)”
+          with
+          [
+              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
+          ]
+          D:\TsinghuaStudyingLife\gogogo\Board.h(51,16):
+          “void std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back(const _Ty &)”: 无法将参数 1 从“std::vector<Tower,std::allocator<Tower>>”转换为“const _Ty &”
+          with
+          [
+              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
+          ]
+              D:\TsinghuaStudyingLife\gogogo\Board.h(51,35):
+              原因如下: 无法从“std::vector<Tower,std::allocator<Tower>>”转换为“const _Ty”
+          with
+          [
+              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
+          ]
+              D:\TsinghuaStudyingLife\gogogo\Board.h(51,35):
+              没有可用于执行该转换的用户定义的转换运算符，或者无法调用该运算符
+      D:\TsinghuaStudyingLife\gogogo\Board.h(51,16):
+      尝试匹配参数列表“(std::vector<Tower,std::allocator<Tower>>)”时
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(55,9): error C2065: “Unit”: 未声明的标识符
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(55,15): error C2065: “unit”: 未声明的标识符
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(55,22): error C2653: “UnitFactory”: 不是类或命名空间名称
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(55,35): error C3861: “createUnit”: 找不到标识符
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(56,9): error C2065: “unit”: 未声明的标识符
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(59,24): error C2065: “unit”: 未声明的标识符
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(84,22): error C2440: “初始化”: 无法从“Board *”转换为“Board &”
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(87,51): error C2039: "getUnitsInRange": 不是 "Board" 的成员
+  (编译源文件“Player.h”)
+      D:\TsinghuaStudyingLife\gogogo\Board.h(6,7):
+      参见“Board”的声明
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(87,51): error C3861: “getUnitsInRange”: 找不到标识符
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(90,13): error C2065: “spellType”: 未声明的标识符
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(95,18): error C2065: “spellType”: 未声明的标识符
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(21,5): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+D:\TsinghuaStudyingLife\gogogo\Player.h(21,23): error C2143: 语法错误: 缺少“;”(在“&”的前面)
+D:\TsinghuaStudyingLife\gogogo\Player.h(21,19): error C2433: “IPlayer::Deck”: 不允许在数据声明中使用“virtual”
+D:\TsinghuaStudyingLife\gogogo\Player.h(21,51): error C2238: 意外的标记位于“;”之前
+D:\TsinghuaStudyingLife\gogogo\Player.h(22,33): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+D:\TsinghuaStudyingLife\gogogo\Player.h(22,43): error C2143: 语法错误: 缺少“,”(在“&”的前面)
+D:\TsinghuaStudyingLife\gogogo\Player.h(45,10): error C3646: “currentDeck”: 未知重写说明符
+D:\TsinghuaStudyingLife\gogogo\Player.h(45,5): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+D:\TsinghuaStudyingLife\gogogo\Player.h(46,17): error C2065: “Card”: 未声明的标识符
+D:\TsinghuaStudyingLife\gogogo\Player.h(46,22): error C2059: 语法错误:“>”
+  Unit.h
+D:\TsinghuaStudyingLife\gogogo\BoardPosition.h(26,24): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“Unit.h”)
   
   正在生成代码...
-MSVCRTD.lib(exe_main.obj) : error LNK2019: 无法解析的外部符号 main，函数 "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) 中引用了该符号
-D:\Tsinghua Studying Life\Programming\gogogo\x64\Debug\gogogo.exe : fatal error LNK1120: 1 个无法解析的外部命令

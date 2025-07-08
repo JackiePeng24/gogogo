@@ -35,3 +35,14 @@ public:
     virtual void addTrophies(int amount) = 0;
 
 };
+
+class Player : public IPlayer {
+private:
+    std::string name;
+    int trophies;
+    float currentElixir;
+    float elixirRegenRate;
+    Deck currentDeck;
+    std::vector<Card*> collection;
+
+};

@@ -4,9 +4,9 @@
 #include<iostream>
 #include<vector>
 
-class Deck {
+class IDeck {
 public:
-	virtual ~Deck() {};
+	virtual ~IDeck() {};
 	
 	//卡组基本操作(游戏开始前调用)
 	virtual bool addCard(std::string cardName) const = 0;
