@@ -2,10 +2,11 @@
 #include <iostream>
 #include<vector>
 #include"Unit.h"
+#include"Player.h"
 #include"Board.h"
 #include"BoardPosition.h"
 
-class ICard {
+class Card {
 protected:
     std::string name;
     std::string description;
@@ -13,9 +14,9 @@ protected:
     std::string rarity;
     int level;
 public:
-    ICard(std::string n, std::string desc, int c,std::string r, int lv = 1)
+    Card(std::string n, std::string desc, int c,std::string r, int lv = 1)
         : name(n), description(desc), cost(c), rarity(r), level(lv) {}
-    virtual ~ICard() = default;
+    virtual ~Card() = default;
 
     // 基本信息
     std::string getName() const { return name; }
@@ -30,76 +31,91 @@ public:
     virtual void upgrade() = 0;
 
     // 使用卡牌
-    virtual void play(BoardPosition position) = 0;
+    virtual void play(Player& player, Board& board, BoardPosition position) = 0;
 };
 
-class UnitCard : public ICard {
-public:
-    UnitCard(std::string n, std::string desc, int c,std::string r, std::string type, int lv = 1)
-        : ICard(n, desc, c, r, lv) {}
-
-    // ICard接口实现
-    std::string getType() const override { return "unit"; }
-
-    
-    void upgrade() override {
-        if (canUpgrade()) {
-            level++;
-            //缺少升级后单位属性提升内容
-        }
-    }
-
-    // 在指定位置放置单位
-    void play(BoardPosition position) override {
-        // 通过工厂创建单位（工厂根据unitType创建对应单位）
-        Unit* unit = UnitFactory::createUnit(name, level);
-        unit->setPosition(position);
-
-        // 将单位添加到棋盘
-        Board::addUnit(unit);
-        std::cout << "Placed " << name << " at ("<< position.row << "," << position.col << ")\n";
-    }
-};
-
-class SpellCard : public ICard {
+class UnitCard : public Card {
 private:
-    float radius; // 作用半径
-public:
-    SpellCard(std::string n, std::string desc, int c,std::string r, std::string type, float rad, int lv = 1)
-        : ICard(n, desc, c, r, lv), radius(rad) {}
+    std::string unitType; // 单位类型标识
+    int baseHealth;       // 基础生命值
+    int baseDamage;       // 基础伤害值
 
-    std::string getType() const override { return "spell"; }
-    
+public:
+    UnitCard(std::string n, std::string desc, int c, std::string r,
+        std::string type, int health, int damage, int lv = 1)
+        : Card(n, desc, c, r, lv), unitType(type),
+        baseHealth(health), baseDamage(damage) {
+    }
 
     void upgrade() override {
         if (canUpgrade()) {
             level++;
-            // 升级后法术效果增强
-
+            // 每级提升10%属性
+            baseHealth = static_cast<int>(baseHealth * 1.1f);
+            baseDamage = static_cast<int>(baseDamage * 1.1f);
         }
     }
 
-    // 在指定位置释放法术
-    void play(BoardPosition position) override {
-        Board& board = new Board;
+    void play(Player& player, Board& board, BoardPosition position) override {
+        if (player.getCurrentElixir() < cost) return;
 
-        // 找到位置范围内的单位
-        std::vector<IUnit*> unitsInRange = Board::getUnitsInRange(position, radius);
+        player.deductElixir(cost); // 扣除圣水
+
+        // 创建单位并添加到战场
+        std::unique_ptr<Unit> unit;
+        if (unitType == "knight") {
+            unit = std::make_unique<Knight>(baseHealth, baseDamage, player.isPlayer1);
+        }
+        else if (unitType == "archer") {
+            unit = std::make_unique<Archer>(baseHealth, baseDamage, player.isPlayer1);
+        }
+        // 添加更多单位类型...
+
+        unit->setPosition(position);
+        board.addUnit(std::move(unit));
+    }
+};
+
+class SpellCard : public Card {
+private:
+    float radius;
+    int baseEffect; // 法术效果值（伤害/治疗等）
+
+public:
+    SpellCard(std::string n, std::string desc, int c, std::string r,
+        float rad, int effect, int lv = 1)
+        : Card(n, desc, c, r, lv), radius(rad), baseEffect(effect) {
+    }
+
+    void upgrade() override {
+        if (canUpgrade()) {
+            level++;
+            // 每级提升15%效果
+            baseEffect = static_cast<int>(baseEffect * 1.15f);
+        }
+    }
+
+    void play(Player& player, Board& board, BoardPosition position) override {
+        if (player.getCurrentElixir() < cost) return;
+
+        player.deductElixir(cost); // 扣除圣水
+
+        // 获取作用范围内的单位
+        auto targets = board.getUnitsInRange(position, radius);
 
         // 根据法术类型执行效果
-        if (spellType == "Fireball") {
-            for (IUnit* unit : unitsInRange) {
-                unit->takeDamage(150 * level); // 基础伤害乘以等级
+        if (getName() == "Fireball") {
+            for (Unit* unit : targets) {
+                unit->takeDamage(baseEffect);
             }
         }
-        else if (spellType == "Arrows") {
-            for (IUnit* unit : unitsInRange) {
-                unit->takeDamage(100 * level);
+        else if (getName() == "Heal") {
+            for (Unit* unit : targets) {
+                if (unit->getOwner() == player.isPlayer1) {
+                    unit->heal(baseEffect);
+                }
             }
         }
-        // 其他法术类型...
-
-        std::cout << "Cast " << name << " at ("
-            << position.row << "," << position.col << ")\n";
+        // 添加更多法术类型
     }
 };
