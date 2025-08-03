@@ -4,40 +4,8 @@
 #include"BoardPosition.h"
 #include <vector>
 
-class IPlayer {
-public:
-    virtual ~IPlayer() = default;
-
-    // 玩家信息
-    virtual std::string getName() const = 0;
-    virtual int getLevel() const = 0;
-    virtual int getTrophies() const = 0;       // 奖杯数
-
-    // 资源管理
-    virtual float getCurrentElixir() const = 0; // 当前圣水
-    virtual float getElixirRegenRate() const = 0; // 圣水恢复速率
-
-    // 卡组管理
-    virtual const Deck& getCurrentDeck() const = 0;
-    virtual bool setCurrentDeck(const Deck& deck) = 0;
-    virtual const std::vector<Card*>& getCollection() const = 0; // 所有卡牌
-
-    // 战斗状态
-    virtual bool getKingTower() = 0;
-    virtual bool getLeftPrincessTower() = 0;
-    virtual bool getRightPrincessTower() = 0;
-
-    // 游戏操作
-    virtual bool playCard(int cardIndex, const BoardPosition& position) = 0;
-
-    // 进度系统
-    virtual void addExperience(int amount) = 0;
-    virtual void addTrophies(int amount) = 0;
-
-};
-
 // Player.h
-class Player : public IPlayer {
+class Player {
 public:
     std::string name;
     int trophies;
@@ -45,29 +13,69 @@ public:
     float elixirRegenRate = 0.8f; // 每秒恢复0.8点圣水
     std::unique_ptr<Deck> currentDeck;
     std::vector<Card*> collection;
-    bool isPlayer1;  // 玩家标识
+    int playerId = -1;
 
     // 圣水恢复计时器
     float elixirTimer = 0.0f;
 
-    Player(std::string playerName, bool player1)
-        : name(playerName), isPlayer1(player1) {
-    }
+    Player(std::string playerName): name(playerName){}
 
-    // 实现IPlayer接口
-    std::string getName() const override { return name; }
-    int getLevel() const override { return 1; } // 简化实现
-    int getTrophies() const override { return trophies; }
-    float getCurrentElixir() const override { return currentElixir; }
-    float getElixirRegenRate() const override { return elixirRegenRate; }
+    //基本信息
+    void setPlayerId(int id) { playerId = id; }
+    int getPlayerId() const { return playerId; }
+    std::string getName() const { return name; }
+    int getTrophies() const { return trophies; }
+    float getCurrentElixir() const { return currentElixir; }
+    float getElixirRegenRate() const { return elixirRegenRate; }
 
-    const Deck& getCurrentDeck() const override { return *currentDeck; }
-    bool setCurrentDeck(const Deck& deck) override {
+    Deck& getCurrentDeck() const { return *currentDeck; }
+    bool setCurrentDeck(const Deck& deck) {
         currentDeck = std::make_unique<Deck>(deck);
         return true;
     }
 
-    const std::vector<Card*>& getCollection() const override { return collection; }
+    const std::vector<Card*>& getCollection() const { return collection; }
+
+    bool setbattleDeck(const std::vector<std::string>& cardNames) {
+        if (cardNames.size() != GameConstants::Deck::MAX_DECK_SIZE) {
+            return false;
+        }
+
+        // 设置对战卡组（从collection中选择10张）
+        std::vector<Card*> selectedCards;
+        for (const auto& name : cardNames) {
+            for (Card* card : collection) {
+                if (card->getName() == name) {
+                    selectedCards.push_back(card);
+                    break;
+                }
+            }
+        }
+
+        if (selectedCards.size() != GameConstants::Deck::MAX_DECK_SIZE) {
+            return false;
+        }
+
+        currentDeck = std::make_unique<Deck>();
+        return currentDeck->initialize(selectedCards);
+    }
+
+    // 使用卡牌
+    bool playCard(int handIndex, BoardPosition position, Board& board) {
+        if (!currentDeck || handIndex < 0 || handIndex >= currentDeck->getCurrentHand().size()) {
+            return false;
+        }
+
+        Card* card = currentDeck->getCurrentHand()[handIndex];
+        if (currentElixir < card->getCost()) {
+            return false;
+        }
+
+        deductElixir(card->getCost());
+        card->play(*this, board, position);
+        return currentDeck->playCard(card);
+    }
+
 
     // 圣水扣除方法
     void deductElixir(int amount) {

@@ -17,11 +17,11 @@ public:
     }
     //血量
     int getHP() {return hp; }
-    bool isAlive() {return hp > 0; }
+    bool isAlive() const{return hp > 0; }
     void takeDamage(int amount) {hp = (hp > amount) ? (hp - amount) : 0; };// 受到伤害
 
     // 位置信息
-    BoardPosition getPosition() {return position; }
+    BoardPosition getPosition() const {return position; }
     virtual void setPosition() = 0;
 
     // 塔标识

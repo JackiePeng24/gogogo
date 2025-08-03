@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameRenderer.h" />
     <ClCompile Include="gogogo.cpp" />
     <ClCompile Include="Card.h" />
     <ClCompile Include="Player.h" />
@@ -135,7 +136,7 @@
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="BoardPosition.h" />
-    <ClInclude Include="CardFoctory.h" />
+    <ClInclude Include="ConsoleInputHandler.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="GameConstants.h" />
     <ClInclude Include="Tower.h" />

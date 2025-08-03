@@ -134,6 +134,9 @@ private:
     }
 
 public:
+    const std::vector<std::unique_ptr<Unit>>& getUnits() const { return units; }
+    const std::vector<std::unique_ptr<Tower>>& getTowers() const { return towers; }
+
     void startNewGame() {
         units.clear();
         towers.clear();

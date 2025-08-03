@@ -12,7 +12,7 @@ protected:
     float moveSpeed;
     int attackRange;
     BoardPosition position;
-    bool isPlayer1;
+    int ownerId;
 
     // 战斗状态
     Unit* attackTarget = nullptr;
@@ -20,12 +20,14 @@ protected:
     float attackCooldown = 0.0f;
     bool isMoving = false;
 
+    float moveRemainder = 0.0f;
+
     virtual int calculateDamage() const { return damage; }
 
 public:
-    Unit(std::string unitName, int health, int dmg, float atkSpeed, float mvSpeed, int range,bool player)
+    Unit(std::string unitName, int health, int dmg, float atkSpeed, float mvSpeed, int range,int Id)
         : name(unitName), hp(health), damage(dmg), attackSpeed(atkSpeed),
-        moveSpeed(mvSpeed), attackRange(range), isPlayer1(player) {
+        moveSpeed(mvSpeed), attackRange(range), ownerId(Id) {
     }
 
     virtual ~Unit() = default;
@@ -36,7 +38,7 @@ public:
     float getAttackSpeed() const { return attackSpeed; }
     float getMoveSpeed() const { return moveSpeed; }
     int getAttackRange() const { return attackRange; }
-    bool getOwner() const { return isPlayer1; }
+    int getOwner() const { return ownerId; }
     BoardPosition getPosition() const { return position; }
     bool isAlive() const { return hp > 0; }
     Unit* getAttackTarget() const { return attackTarget; }
@@ -86,11 +88,10 @@ public:
         float remainder = moveAmount - moveSteps;
 
         // 存储剩余移动量用于下一帧
-        static std::unordered_map<Unit*, float> moveRemainders;
-        moveRemainders[this] += remainder;
-        if (moveRemainders[this] >= 1.0f) {
+        moveRemainder += remainder;
+        if (moveRemainder >= 1.0f) {
             moveSteps += 1;
-            moveRemainders[this] -= 1.0f;
+            moveRemainder -= 1.0f;
         }
 
         // 执行移动（每次移动一个格子）

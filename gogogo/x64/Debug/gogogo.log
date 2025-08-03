@@ -1,163 +1,492 @@
-﻿  gogogo.cpp
+﻿  GameRenderer.h
+D:\TsinghuaStudyingLife\gogogo\BoardPosition.h(25,24): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Board.h(64,90): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Board.h(90,63): warning C4805: “==”: 在操作中将类型“bool”与类型“int”混合不安全
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Board.h(108,87): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(34,23): error C2061: 语法错误: 标识符“Player”
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(61,15): error C2061: 语法错误: 标识符“Player”
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(62,13): error C2065: “player”: 未声明的标识符
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(64,9): error C2065: “player”: 未声明的标识符
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(69,69): error C2065: “player”: 未声明的标识符
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(72,69): error C2065: “player”: 未声明的标识符
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(76,27): error C2065: “position”: 未声明的标识符
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(77,9): error C2065: “board”: 未声明的标识符
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(102,15): error C2061: 语法错误: 标识符“Player”
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(103,13): error C2065: “player”: 未声明的标识符
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(105,9): error C2065: “player”: 未声明的标识符
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(108,24): error C2065: “board”: 未声明的标识符
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(108,46): error C2065: “position”: 未声明的标识符
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(112,29): error C2143: 语法错误: 缺少“;”(在“:”的前面)
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(112,31): error C3536: “targets”: 初始化之前无法使用
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(112,38): error C2143: 语法错误: 缺少“;”(在“)”的前面)
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(117,31): error C3312: 找不到类型 "<error type>" 的可调用 "begin" 函数
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(117,31): error C3312: 找不到类型 "<error type>" 的可调用 "end" 函数
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(117,29): error C2143: 语法错误: 缺少“;”(在“:”的前面)
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(117,38): error C2143: 语法错误: 缺少“;”(在“)”的前面)
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(118,41): error C2065: “player”: 未声明的标识符
+  (编译源文件“GameRenderer.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(75,15): error C2660: “Card::play”: 函数不接受 3 个参数
+  (编译源文件“GameRenderer.h”)
+      D:\TsinghuaStudyingLife\gogogo\Card.h(34,18):
+      参见“Card::play”的声明
+      D:\TsinghuaStudyingLife\gogogo\Player.h(75,15):
+      尝试匹配参数列表“(Player, Board, BoardPosition)”时
+  
+D:\TsinghuaStudyingLife\gogogo\GameRenderer.h(67,54): warning C4566: 由通用字符名称“\u2654”表示的字符不能在当前代码页(936)中表示出来
+D:\TsinghuaStudyingLife\gogogo\GameRenderer.h(67,62): warning C4566: 由通用字符名称“\u2656”表示的字符不能在当前代码页(936)中表示出来
+  gogogo.cpp
+D:\TsinghuaStudyingLife\gogogo\BoardPosition.h(25,24): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Board.h(64,90): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Board.h(90,63): warning C4805: “==”: 在操作中将类型“bool”与类型“int”混合不安全
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Board.h(108,87): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(34,23): error C2061: 语法错误: 标识符“Player”
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(61,15): error C2061: 语法错误: 标识符“Player”
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(62,13): error C2065: “player”: 未声明的标识符
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(64,9): error C2065: “player”: 未声明的标识符
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(69,69): error C2065: “player”: 未声明的标识符
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(72,69): error C2065: “player”: 未声明的标识符
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(76,27): error C2065: “position”: 未声明的标识符
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(77,9): error C2065: “board”: 未声明的标识符
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(102,15): error C2061: 语法错误: 标识符“Player”
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(103,13): error C2065: “player”: 未声明的标识符
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(105,9): error C2065: “player”: 未声明的标识符
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(108,24): error C2065: “board”: 未声明的标识符
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(108,46): error C2065: “position”: 未声明的标识符
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(112,29): error C2143: 语法错误: 缺少“;”(在“:”的前面)
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(112,31): error C3536: “targets”: 初始化之前无法使用
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(112,38): error C2143: 语法错误: 缺少“;”(在“)”的前面)
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(117,31): error C3312: 找不到类型 "<error type>" 的可调用 "begin" 函数
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(117,31): error C3312: 找不到类型 "<error type>" 的可调用 "end" 函数
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(117,29): error C2143: 语法错误: 缺少“;”(在“:”的前面)
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(117,38): error C2143: 语法错误: 缺少“;”(在“)”的前面)
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(118,41): error C2065: “player”: 未声明的标识符
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(75,15): error C2660: “Card::play”: 函数不接受 3 个参数
+  (编译源文件“gogogo.cpp”)
+      D:\TsinghuaStudyingLife\gogogo\Card.h(34,18):
+      参见“Card::play”的声明
+      D:\TsinghuaStudyingLife\gogogo\Player.h(75,15):
+      尝试匹配参数列表“(Player, Board, BoardPosition)”时
+  
+D:\TsinghuaStudyingLife\gogogo\GameRenderer.h(67,54): warning C4566: 由通用字符名称“\u2654”表示的字符不能在当前代码页(936)中表示出来
+  (编译源文件“gogogo.cpp”)
+  
+D:\TsinghuaStudyingLife\gogogo\GameRenderer.h(67,62): warning C4566: 由通用字符名称“\u2656”表示的字符不能在当前代码页(936)中表示出来
+  (编译源文件“gogogo.cpp”)
+  
   Card.h
-D:\TsinghuaStudyingLife\gogogo\BoardPosition.h(26,24): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
+D:\TsinghuaStudyingLife\gogogo\BoardPosition.h(25,24): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
   (编译源文件“Card.h”)
   
-D:\TsinghuaStudyingLife\gogogo\Board.h(51,16): error C2665: “std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back”: 没有重载函数可以转换所有参数类型
+D:\TsinghuaStudyingLife\gogogo\Deck.h(12,14): error C2065: “Card”: 未声明的标识符
   (编译源文件“Card.h”)
-      D:\Program Files\vs studio\VC\Tools\MSVC\14.43.34808\include\vector(921,23):
-      可能是“void std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back(_Ty &&)”
-          with
-          [
-              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
-          ]
-          D:\TsinghuaStudyingLife\gogogo\Board.h(51,16):
-          “void std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back(_Ty &&)”: 无法将参数 1 从“std::vector<Tower,std::allocator<Tower>>”转换为“_Ty &&”
-          with
-          [
-              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
-          ]
-              D:\TsinghuaStudyingLife\gogogo\Board.h(51,35):
-              原因如下: 无法从“std::vector<Tower,std::allocator<Tower>>”转换为“_Ty”
-          with
-          [
-              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
-          ]
-              D:\TsinghuaStudyingLife\gogogo\Board.h(51,35):
-              没有可用于执行该转换的用户定义的转换运算符，或者无法调用该运算符
-      D:\Program Files\vs studio\VC\Tools\MSVC\14.43.34808\include\vector(917,23):
-      或    “void std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back(const _Ty &)”
-          with
-          [
-              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
-          ]
-          D:\TsinghuaStudyingLife\gogogo\Board.h(51,16):
-          “void std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back(const _Ty &)”: 无法将参数 1 从“std::vector<Tower,std::allocator<Tower>>”转换为“const _Ty &”
-          with
-          [
-              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
-          ]
-              D:\TsinghuaStudyingLife\gogogo\Board.h(51,35):
-              原因如下: 无法从“std::vector<Tower,std::allocator<Tower>>”转换为“const _Ty”
-          with
-          [
-              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
-          ]
-              D:\TsinghuaStudyingLife\gogogo\Board.h(51,35):
-              没有可用于执行该转换的用户定义的转换运算符，或者无法调用该运算符
-      D:\TsinghuaStudyingLife\gogogo\Board.h(51,16):
-      尝试匹配参数列表“(std::vector<Tower,std::allocator<Tower>>)”时
   
-D:\TsinghuaStudyingLife\gogogo\Card.h(55,9): error C2065: “Unit”: 未声明的标识符
-D:\TsinghuaStudyingLife\gogogo\Card.h(55,15): error C2065: “unit”: 未声明的标识符
-D:\TsinghuaStudyingLife\gogogo\Card.h(55,22): error C2653: “UnitFactory”: 不是类或命名空间名称
-D:\TsinghuaStudyingLife\gogogo\Card.h(55,35): error C3861: “createUnit”: 找不到标识符
-D:\TsinghuaStudyingLife\gogogo\Card.h(56,9): error C2065: “unit”: 未声明的标识符
-D:\TsinghuaStudyingLife\gogogo\Card.h(59,24): error C2065: “unit”: 未声明的标识符
-D:\TsinghuaStudyingLife\gogogo\Card.h(84,22): error C2440: “初始化”: 无法从“Board *”转换为“Board &”
-D:\TsinghuaStudyingLife\gogogo\Card.h(87,51): error C2039: "getUnitsInRange": 不是 "Board" 的成员
-      D:\TsinghuaStudyingLife\gogogo\Board.h(6,7):
-      参见“Board”的声明
+D:\TsinghuaStudyingLife\gogogo\Deck.h(12,19): error C2059: 语法错误:“>”
+  (编译源文件“Card.h”)
   
-D:\TsinghuaStudyingLife\gogogo\Card.h(87,51): error C3861: “getUnitsInRange”: 找不到标识符
-D:\TsinghuaStudyingLife\gogogo\Card.h(90,13): error C2065: “spellType”: 未声明的标识符
-D:\TsinghuaStudyingLife\gogogo\Card.h(95,18): error C2065: “spellType”: 未声明的标识符
+D:\TsinghuaStudyingLife\gogogo\Deck.h(13,14): error C2065: “Card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(13,19): error C2059: 语法错误:“>”
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(14,14): error C2065: “Card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(14,19): error C2059: 语法错误:“>”
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(16,21): error C2065: “Card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(16,26): error C2059: 语法错误:“,”
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(27,6): error C2143: 语法错误: 缺少“;”(在“*”的前面)
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(27,2): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(27,25): error C2334: “{”的前面有意外标记；跳过明显的函数体
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(46,30): error C2065: “Card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(46,35): error C2059: 语法错误:“>”
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(64,16): error C2061: 语法错误: 标识符“Card”
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(99,20): error C2065: “Card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(99,25): error C2059: 语法错误:“>”
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(99,2): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(99,8): error C2062: 意外的类型“<error type>” 
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(99,51): error C2334: “{”的前面有意外标记；跳过明显的函数体
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(104,20): error C2065: “Card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(104,25): error C2059: 语法错误:“>”
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(104,2): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(104,8): error C2062: 意外的类型“<error type>” 
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(104,52): error C2334: “{”的前面有意外标记；跳过明显的函数体
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(58,8): error C2065: “Card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(58,14): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(58,21): error C3861: “drawrandomCard”: 找不到标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(59,27): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(65,63): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(65,18): error C2672: “std::find”: 未找到匹配的重载函数
+  (编译源文件“Card.h”)
+      D:\Program Files\vs studio\VC\Tools\MSVC\14.44.35207\include\xutility(6169,31):
+      可能是“_InIt std::find(_InIt,const _InIt,const _Ty &)”
+          D:\TsinghuaStudyingLife\gogogo\Deck.h(65,18):
+          “_InIt std::find(_InIt,const _InIt,const _Ty &)”: 应输入 3 个参数，却提供了 2 个
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(66,7): error C3536: “it”: 初始化之前无法使用
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(73,26): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(74,18): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(77,7): error C2065: “Card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(77,13): error C2065: “newCard”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(77,23): error C3861: “drawrandomCard”: 找不到标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(78,26): error C2065: “newCard”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(85,40): error C3536: “it”: 初始化之前无法使用
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(86,4): error C2065: “Card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(86,10): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(86,17): error C2100: 无法取消引用类型为“<error type>”的操作数
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(87,25): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Deck.h(89,26): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(15,17): error C2065: “Card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(15,22): error C2059: 语法错误:“>”
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(37,23): error C2065: “Card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(37,28): error C2059: 语法错误:“>”
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(37,5): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(37,11): error C2062: 意外的类型“<error type>” 
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(37,53): error C2334: “{”的前面有意外标记；跳过明显的函数体
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(64,58): error C2061: 语法错误: 标识符“Board”
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(95,30): error C2061: 语法错误: 标识符“Card”
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(45,21): error C2065: “Card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(45,26): error C2059: 语法错误:“>”
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(47,18): error C2065: “Card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(47,24): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(47,29): error C2143: 语法错误: 缺少“;”(在“:”的前面)
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(47,41): error C2143: 语法错误: 缺少“;”(在“)”的前面)
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(48,21): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(49,45): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(65,72): error C2039: "getCurrentHand": 不是 "Deck" 的成员
+  (编译源文件“Card.h”)
+      D:\TsinghuaStudyingLife\gogogo\Deck.h(10,7):
+      参见“Deck”的声明
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(69,9): error C2065: “Card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(69,15): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(69,35): error C2039: "getCurrentHand": 不是 "Deck" 的成员
+  (编译源文件“Card.h”)
+      D:\TsinghuaStudyingLife\gogogo\Deck.h(10,7):
+      参见“Deck”的声明
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(70,29): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(74,22): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(75,9): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(75,27): error C2065: “board”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(76,38): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(96,30): error C2065: “card”: 未声明的标识符
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Board.h(64,90): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Board.h(90,63): warning C4805: “==”: 在操作中将类型“bool”与类型“int”混合不安全
+  (编译源文件“Card.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Board.h(108,87): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+  (编译源文件“Card.h”)
+  
   Player.h
-D:\TsinghuaStudyingLife\gogogo\BoardPosition.h(26,24): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
+D:\TsinghuaStudyingLife\gogogo\BoardPosition.h(25,24): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
   (编译源文件“Player.h”)
   
-D:\TsinghuaStudyingLife\gogogo\Board.h(51,16): error C2665: “std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back”: 没有重载函数可以转换所有参数类型
-  (编译源文件“Player.h”)
-      D:\Program Files\vs studio\VC\Tools\MSVC\14.43.34808\include\vector(921,23):
-      可能是“void std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back(_Ty &&)”
-          with
-          [
-              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
-          ]
-          D:\TsinghuaStudyingLife\gogogo\Board.h(51,16):
-          “void std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back(_Ty &&)”: 无法将参数 1 从“std::vector<Tower,std::allocator<Tower>>”转换为“_Ty &&”
-          with
-          [
-              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
-          ]
-              D:\TsinghuaStudyingLife\gogogo\Board.h(51,35):
-              原因如下: 无法从“std::vector<Tower,std::allocator<Tower>>”转换为“_Ty”
-          with
-          [
-              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
-          ]
-              D:\TsinghuaStudyingLife\gogogo\Board.h(51,35):
-              没有可用于执行该转换的用户定义的转换运算符，或者无法调用该运算符
-      D:\Program Files\vs studio\VC\Tools\MSVC\14.43.34808\include\vector(917,23):
-      或    “void std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back(const _Ty &)”
-          with
-          [
-              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
-          ]
-          D:\TsinghuaStudyingLife\gogogo\Board.h(51,16):
-          “void std::vector<std::unique_ptr<Tower,std::default_delete<Tower>>,std::allocator<std::unique_ptr<Tower,std::default_delete<Tower>>>>::push_back(const _Ty &)”: 无法将参数 1 从“std::vector<Tower,std::allocator<Tower>>”转换为“const _Ty &”
-          with
-          [
-              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
-          ]
-              D:\TsinghuaStudyingLife\gogogo\Board.h(51,35):
-              原因如下: 无法从“std::vector<Tower,std::allocator<Tower>>”转换为“const _Ty”
-          with
-          [
-              _Ty=std::unique_ptr<Tower,std::default_delete<Tower>>
-          ]
-              D:\TsinghuaStudyingLife\gogogo\Board.h(51,35):
-              没有可用于执行该转换的用户定义的转换运算符，或者无法调用该运算符
-      D:\TsinghuaStudyingLife\gogogo\Board.h(51,16):
-      尝试匹配参数列表“(std::vector<Tower,std::allocator<Tower>>)”时
-  
-D:\TsinghuaStudyingLife\gogogo\Card.h(55,9): error C2065: “Unit”: 未声明的标识符
+D:\TsinghuaStudyingLife\gogogo\Board.h(64,90): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
   (编译源文件“Player.h”)
   
-D:\TsinghuaStudyingLife\gogogo\Card.h(55,15): error C2065: “unit”: 未声明的标识符
+D:\TsinghuaStudyingLife\gogogo\Board.h(90,63): warning C4805: “==”: 在操作中将类型“bool”与类型“int”混合不安全
   (编译源文件“Player.h”)
   
-D:\TsinghuaStudyingLife\gogogo\Card.h(55,22): error C2653: “UnitFactory”: 不是类或命名空间名称
+D:\TsinghuaStudyingLife\gogogo\Board.h(108,87): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
   (编译源文件“Player.h”)
   
-D:\TsinghuaStudyingLife\gogogo\Card.h(55,35): error C3861: “createUnit”: 找不到标识符
+D:\TsinghuaStudyingLife\gogogo\Card.h(34,23): error C2061: 语法错误: 标识符“Player”
   (编译源文件“Player.h”)
   
-D:\TsinghuaStudyingLife\gogogo\Card.h(56,9): error C2065: “unit”: 未声明的标识符
+D:\TsinghuaStudyingLife\gogogo\Card.h(61,15): error C2061: 语法错误: 标识符“Player”
   (编译源文件“Player.h”)
   
-D:\TsinghuaStudyingLife\gogogo\Card.h(59,24): error C2065: “unit”: 未声明的标识符
+D:\TsinghuaStudyingLife\gogogo\Card.h(62,13): error C2065: “player”: 未声明的标识符
   (编译源文件“Player.h”)
   
-D:\TsinghuaStudyingLife\gogogo\Card.h(84,22): error C2440: “初始化”: 无法从“Board *”转换为“Board &”
+D:\TsinghuaStudyingLife\gogogo\Card.h(64,9): error C2065: “player”: 未声明的标识符
   (编译源文件“Player.h”)
   
-D:\TsinghuaStudyingLife\gogogo\Card.h(87,51): error C2039: "getUnitsInRange": 不是 "Board" 的成员
-  (编译源文件“Player.h”)
-      D:\TsinghuaStudyingLife\gogogo\Board.h(6,7):
-      参见“Board”的声明
-  
-D:\TsinghuaStudyingLife\gogogo\Card.h(87,51): error C3861: “getUnitsInRange”: 找不到标识符
+D:\TsinghuaStudyingLife\gogogo\Card.h(69,69): error C2065: “player”: 未声明的标识符
   (编译源文件“Player.h”)
   
-D:\TsinghuaStudyingLife\gogogo\Card.h(90,13): error C2065: “spellType”: 未声明的标识符
+D:\TsinghuaStudyingLife\gogogo\Card.h(72,69): error C2065: “player”: 未声明的标识符
   (编译源文件“Player.h”)
   
-D:\TsinghuaStudyingLife\gogogo\Card.h(95,18): error C2065: “spellType”: 未声明的标识符
+D:\TsinghuaStudyingLife\gogogo\Card.h(76,27): error C2065: “position”: 未声明的标识符
   (编译源文件“Player.h”)
   
-D:\TsinghuaStudyingLife\gogogo\Player.h(21,5): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
-D:\TsinghuaStudyingLife\gogogo\Player.h(21,23): error C2143: 语法错误: 缺少“;”(在“&”的前面)
-D:\TsinghuaStudyingLife\gogogo\Player.h(21,19): error C2433: “IPlayer::Deck”: 不允许在数据声明中使用“virtual”
-D:\TsinghuaStudyingLife\gogogo\Player.h(21,51): error C2238: 意外的标记位于“;”之前
-D:\TsinghuaStudyingLife\gogogo\Player.h(22,33): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
-D:\TsinghuaStudyingLife\gogogo\Player.h(22,43): error C2143: 语法错误: 缺少“,”(在“&”的前面)
-D:\TsinghuaStudyingLife\gogogo\Player.h(45,10): error C3646: “currentDeck”: 未知重写说明符
-D:\TsinghuaStudyingLife\gogogo\Player.h(45,5): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
-D:\TsinghuaStudyingLife\gogogo\Player.h(46,17): error C2065: “Card”: 未声明的标识符
-D:\TsinghuaStudyingLife\gogogo\Player.h(46,22): error C2059: 语法错误:“>”
+D:\TsinghuaStudyingLife\gogogo\Card.h(77,9): error C2065: “board”: 未声明的标识符
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(102,15): error C2061: 语法错误: 标识符“Player”
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(103,13): error C2065: “player”: 未声明的标识符
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(105,9): error C2065: “player”: 未声明的标识符
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(108,24): error C2065: “board”: 未声明的标识符
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(108,46): error C2065: “position”: 未声明的标识符
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(112,29): error C2143: 语法错误: 缺少“;”(在“:”的前面)
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(112,31): error C3536: “targets”: 初始化之前无法使用
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(112,38): error C2143: 语法错误: 缺少“;”(在“)”的前面)
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(117,31): error C3312: 找不到类型 "<error type>" 的可调用 "begin" 函数
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(117,31): error C3312: 找不到类型 "<error type>" 的可调用 "end" 函数
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(117,29): error C2143: 语法错误: 缺少“;”(在“:”的前面)
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(117,38): error C2143: 语法错误: 缺少“;”(在“)”的前面)
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Card.h(118,41): error C2065: “player”: 未声明的标识符
+  (编译源文件“Player.h”)
+  
+D:\TsinghuaStudyingLife\gogogo\Player.h(75,15): error C2660: “Card::play”: 函数不接受 3 个参数
+      D:\TsinghuaStudyingLife\gogogo\Card.h(34,18):
+      参见“Card::play”的声明
+      D:\TsinghuaStudyingLife\gogogo\Player.h(75,15):
+      尝试匹配参数列表“(Player, Board, BoardPosition)”时
+  
   Unit.h
-D:\TsinghuaStudyingLife\gogogo\BoardPosition.h(26,24): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
+D:\TsinghuaStudyingLife\gogogo\BoardPosition.h(25,24): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
   (编译源文件“Unit.h”)
   
   正在生成代码...

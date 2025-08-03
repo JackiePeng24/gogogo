@@ -27,6 +27,9 @@
     <ClCompile Include="Unit.h">
       <Filter>头文件</Filter>
     </ClCompile>
+    <ClCompile Include="GameRenderer.h">
+      <Filter>头文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoardPosition.h">
@@ -44,7 +47,7 @@
     <ClInclude Include="Board.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="CardFoctory.h">
+    <ClInclude Include="ConsoleInputHandler.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

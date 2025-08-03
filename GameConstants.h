@@ -17,13 +17,17 @@ namespace GameConstants {
 	}
 
 	//手牌区相关常量
+
 	namespace Deck {
-		const int MAX_CARDS = 10;
+		const int MAX_DECK_SIZE = 10;   // 卡组最大容量
+		const int HAND_SIZE = 4;        // 手牌数量
+		const int COOLDOWN_TURNS = 2;   // 使用后的冷却回合数
+
 		enum CardState {
-			IN_DECK, // 牌库
-			IN_HAND, // 手牌
-			USED // 打出（进入抽牌区）
-		}; 
+			IN_DECK,    // 在卡组中可用
+			IN_HAND,    // 当前在手牌中
+			IN_COOLDOWN // 已使用，正在冷却
+		};
 	}
 
 
@@ -37,9 +41,9 @@ namespace GameConstants {
 		const BoardPosition LEFT_PRINCESS_POS_1 = BoardPosition(2,3);
 		const BoardPosition RIGHT_PRINCESS_POS_1 = BoardPosition(2, 11);
 
-		const BoardPosition KING_POS_2 = BoardPosition(15, 7);
-		const BoardPosition LEFT_PRINCESS_POS_2 = BoardPosition(13, 3);
-		const BoardPosition RIGHT_PRINCESS_POS_2 = BoardPosition(13, 11);
+		const BoardPosition KING_POS_2 = BoardPosition(12, 7);
+		const BoardPosition LEFT_PRINCESS_POS_2 = BoardPosition(10, 3);
+		const BoardPosition RIGHT_PRINCESS_POS_2 = BoardPosition(10, 11);
 
 		const int KING_HP = 1000;
 		const int PRINCESS_HP = 500;

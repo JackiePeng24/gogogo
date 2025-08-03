@@ -41,6 +41,8 @@ private:
     int baseDamage;       // 基础伤害值
 
 public:
+    std::string getType() const override { return "unit"; }
+
     UnitCard(std::string n, std::string desc, int c, std::string r,
         std::string type, int health, int damage, int lv = 1)
         : Card(n, desc, c, r, lv), unitType(type),
@@ -64,10 +66,10 @@ public:
         // 创建单位并添加到战场
         std::unique_ptr<Unit> unit;
         if (unitType == "knight") {
-            unit = std::make_unique<Knight>(baseHealth, baseDamage, player.isPlayer1);
+            unit = std::make_unique<Knight>(baseHealth, baseDamage, player.playerId);
         }
         else if (unitType == "archer") {
-            unit = std::make_unique<Archer>(baseHealth, baseDamage, player.isPlayer1);
+            unit = std::make_unique<Archer>(baseHealth, baseDamage, player.playerId);
         }
         // 添加更多单位类型...
 
@@ -86,6 +88,8 @@ public:
         float rad, int effect, int lv = 1)
         : Card(n, desc, c, r, lv), radius(rad), baseEffect(effect) {
     }
+
+    std::string getType() const override { return "spell"; }
 
     void upgrade() override {
         if (canUpgrade()) {
@@ -111,7 +115,7 @@ public:
         }
         else if (getName() == "Heal") {
             for (Unit* unit : targets) {
-                if (unit->getOwner() == player.isPlayer1) {
+                if (unit->getOwner() == player.playerId) {
                     unit->heal(baseEffect);
                 }
             }

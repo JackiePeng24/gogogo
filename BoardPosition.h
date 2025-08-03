@@ -8,8 +8,7 @@ struct BoardPosition {
     BoardPosition(int r = -1, int c = -1) : row(r), col(c) {}
 
     bool isValid() const {
-        return row >= 0 && row < 8 &&
-            col >= 0 && col < 8;
+        return row >= 0 && row < 13 && col >= 0 && col < 15;
     }
 
     bool operator==(const BoardPosition& other) const {
