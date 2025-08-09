@@ -19,7 +19,7 @@ struct BoardPosition {
         return !(*this == other);
     }
 
-    float distance(const BoardPosition& other) const {
+    int distance(const BoardPosition& other) const {
         int dr = row - other.row;
         int dc = col - other.col;
         return dr * dr + dc * dc;

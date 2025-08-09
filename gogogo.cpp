@@ -1,16 +1,18 @@
-﻿#include "Player.h"
+﻿#include<iostream>
+#include "Player.h"
 #include "Board.h"
 #include "GameRenderer.h"
 #include "ConsoleInputHandler.h"
+#include<sstream>
 #include <thread>
 #include <chrono>
 #include <limits>
 
 void initializePlayerCollection(Player& player) {
-    player.addCardToCollection(new UnitCard("骑士", "坚固近战单位", 3, "普通", "knight", 100, 20));
-    player.addCardToCollection(new UnitCard("弓箭手", "远程单位", 4, "普通", "archer", 60, 30));
-    player.addCardToCollection(new SpellCard("火球术", "范围伤害", 4, "稀有", 2.0f, 50));
-    player.addCardToCollection(new SpellCard("治疗术", "恢复生命", 3, "稀有", 2.0f, 40));
+    player.addCardToCollection(Card::createUnitCard("Knight", "坚固近战单位", 3, "普通", 100, 20, 1));
+    player.addCardToCollection(Card::createUnitCard("Archer", "远程单位", 4, "普通", 60, 30, 1));
+    player.addCardToCollection(Card::createSpellCard("Fireball", "范围伤害", 4, "稀有", 2.0f, 50, 1));
+    player.addCardToCollection(Card::createSpellCard("Healing", "恢复生命", 3, "稀有", 2.0f, 40, 1));
 }
 
 void selectDeckInteractively(Player& player) {
@@ -36,10 +38,10 @@ void selectDeckInteractively(Player& player) {
         }
 
         if (selectedCards.size() == GameConstants::Deck::MAX_DECK_SIZE) {
-            std::cout << "按Y确认卡组，按N继续编辑: ";
+            std::cout << "按y确认卡组，按n继续编辑: ";
             char confirm;
             std::cin >> confirm;
-            if (tolower(confirm) == 'y') break;
+            if (confirm == 'y') break;
             continue;
         }
 
@@ -78,6 +80,48 @@ void selectDeckInteractively(Player& player) {
     player.setbattleDeck(selectedCards);
 }
 
+void handleCardPlacement(Player& player, Board& board, int cardIndex) {
+    while (true) {
+        std::cout << "输入放置位置(行 列)，或按q取消: ";
+
+        std::string input;
+        std::getline(std::cin, input);
+
+        if (input == "q") {
+            break;
+        }
+
+        std::istringstream iss(input);
+        int row, col;
+        if (iss >> row >> col) {
+            BoardPosition pos(row, col);
+            if (pos.isValid()) {
+                if (player.playCard(cardIndex, pos, board)) {
+                    std::cout << "成功放置卡牌: "
+                        << player.getCurrentDeck().getCurrentHand()[cardIndex]->getName()
+                        << "\n";
+                    break;
+                }
+                else {
+                    std::cout << "无法在此位置放置卡牌！\n";
+                }
+            }
+            else {
+                std::cout << "无效位置！有效范围: 行(0-"
+                    << GameConstants::Board::ROWS - 1 << "), 列(0-"
+                    << GameConstants::Board::COLS - 1 << ")\n";
+            }
+        }
+        else {
+            std::cout << "无效输入！请输入两个数字(行 列)或q取消\n";
+        }
+    }
+}
+
+float renderAccumulator = 0.0f;
+const float renderInterval = 0.3f;
+
+//main函数
 int main() {
     Board board;
     board.startNewGame();
@@ -97,25 +141,103 @@ int main() {
     player2.getCurrentDeck().drawInitialHand();
 
     int currentPlayerId = 1;
+    bool placementPhase = true;
+    float autoPhaseDuration = 5.0f;
+    float autoPhaseTimer = 0.0f;
+
     while (board.isGameActive()) {
         Player& current = (currentPlayerId == 1) ? player1 : player2;
 
-        ConsoleRenderer::render(board, current);
-        std::cout << "\n=== " << current.getName() << "的回合 ===\n";
+        if (placementPhase) {
+            system("cls");
+            ConsoleRenderer::render(board, current);
+            std::cout << "\n=== " << current.getName() << "的放置阶段 ===\n";
+            std::cout << "放置你的单位 (剩余自动阶段时间: "
+                << autoPhaseDuration - autoPhaseTimer << "秒)\n";
 
-        ConsoleInputHandler::handlePlayerTurn(current, board);
+            bool processingInput = true;
+            while (processingInput) {
+                system("cls");
+                ConsoleRenderer::render(board, current);
+                std::cout << "\n=== " << current.getName() << "的放置阶段 ===\n";
+                std::cout << "放置你的单位 (剩余自动阶段时间: "
+                    << autoPhaseDuration - autoPhaseTimer << "秒)\n";
 
-        board.update(1.0f);
-        current.update(1.0f);
-        current.getCurrentDeck().updateCooldowns();
+                // 显示手牌
+                const auto& hand = current.getCurrentDeck().getCurrentHand();
+                for (int i = 0; i < hand.size(); ++i) {
+                    std::cout << i << ": " << hand[i]->getName()
+                        << " (费用:" << hand[i]->getCost() << ")\n";
+                }
 
-        currentPlayerId = 3 - currentPlayerId; // 在1和2之间切换
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+                // 读取输入
+                std::cout << "选择卡牌(0-" << hand.size() - 1 << ")或按q结束放置: ";
+                std::string inputStr;
+                std::getline(std::cin, inputStr);  // 读取整行
+
+                if (inputStr == "q") {
+                    processingInput = false;
+                    placementPhase = false;
+                    autoPhaseTimer = 0.0f;
+                }
+                else if (!inputStr.empty() && isdigit(inputStr[0])) {
+                    int choice = inputStr[0] - '0';
+                    if (choice >= 0 && choice < hand.size()) {
+                        handleCardPlacement(current, board, choice);
+                    }
+                    else {
+                        std::cout << "无效选择！请输入 0-" << hand.size() - 1 << " 或 q\n";
+                        std::this_thread::sleep_for(std::chrono::seconds(1));
+                    }
+                }
+
+                // 更新时间
+                autoPhaseTimer += 0.1f;
+                if (autoPhaseTimer >= autoPhaseDuration) {
+                    processingInput = false;
+                    placementPhase = false;
+                    autoPhaseTimer = 0.0f;
+                }
+            }
+        }
+        else {
+            // 自动战斗阶段
+            renderAccumulator += 0.1f;
+            autoPhaseTimer += 0.1f;
+
+            // 更新游戏逻辑
+            board.update(0.1f);
+            current.update(0.1f);
+            current.getCurrentDeck().updateCooldowns();
+
+            // 按固定间隔渲染
+            if (renderAccumulator >= renderInterval) {
+                system("cls");
+                ConsoleRenderer::render(board, current);
+                std::cout << "\n=== 自动战斗阶段 ===\n";
+                std::cout << "战斗进行中... (" << autoPhaseDuration - autoPhaseTimer << "秒后返回放置阶段)\n";
+                renderAccumulator = 0.0f;
+            }
+
+            if (autoPhaseTimer >= autoPhaseDuration) {
+                placementPhase = true;
+                autoPhaseTimer = 0.0f;
+                currentPlayerId = 3 - currentPlayerId;
+                renderAccumulator = 0.0f; // 重置渲染计时器
+
+                if (Card* newCard = current.getCurrentDeck().drawrandomCard()) {
+                    current.getCurrentDeck().getCurrentHand().push_back(newCard);
+                }
+            }
+        }
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
+    // 清理资源
     for (auto& card : player1.getCollection()) { delete card; }
     for (auto& card : player2.getCollection()) { delete card; }
-    // 直接利用Board的结束状态，不再冗余检查
+
     std::cout << "游戏结束！" << std::endl;
     return 0;
 }

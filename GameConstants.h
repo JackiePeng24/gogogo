@@ -19,7 +19,7 @@ namespace GameConstants {
 	//手牌区相关常量
 
 	namespace Deck {
-		const int MAX_DECK_SIZE = 10;   // 卡组最大容量
+		const int MAX_DECK_SIZE = 4;   // 卡组最大容量
 		const int HAND_SIZE = 4;        // 手牌数量
 		const int COOLDOWN_TURNS = 2;   // 使用后的冷却回合数
 

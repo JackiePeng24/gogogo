@@ -1,14 +1,19 @@
 #pragma once
-#include "Card.h"
-#include "Deck.h"
-#include"BoardPosition.h"
+class Card;
+class Board;
+
+#include<iostream>
 #include <vector>
+#include <memory>
+#include "Deck.h"
+#include "GameConstants.h"
+#include "BoardPosition.h"
 
 // Player.h
 class Player {
 public:
     std::string name;
-    int trophies;
+    int trophies = 0;
     float currentElixir = 5.0f;  // 初始圣水值
     float elixirRegenRate = 0.8f; // 每秒恢复0.8点圣水
     std::unique_ptr<Deck> currentDeck;
@@ -18,7 +23,7 @@ public:
     // 圣水恢复计时器
     float elixirTimer = 0.0f;
 
-    Player(std::string playerName): name(playerName){}
+    Player(std::string playerName) : name(playerName) {}
 
     //基本信息
     void setPlayerId(int id) { playerId = id; }
@@ -36,45 +41,10 @@ public:
 
     const std::vector<Card*>& getCollection() const { return collection; }
 
-    bool setbattleDeck(const std::vector<std::string>& cardNames) {
-        if (cardNames.size() != GameConstants::Deck::MAX_DECK_SIZE) {
-            return false;
-        }
-
-        // 设置对战卡组（从collection中选择10张）
-        std::vector<Card*> selectedCards;
-        for (const auto& name : cardNames) {
-            for (Card* card : collection) {
-                if (card->getName() == name) {
-                    selectedCards.push_back(card);
-                    break;
-                }
-            }
-        }
-
-        if (selectedCards.size() != GameConstants::Deck::MAX_DECK_SIZE) {
-            return false;
-        }
-
-        currentDeck = std::make_unique<Deck>();
-        return currentDeck->initialize(selectedCards);
-    }
+    bool setbattleDeck(const std::vector<std::string>& cardNames);
 
     // 使用卡牌
-    bool playCard(int handIndex, BoardPosition position, Board& board) {
-        if (!currentDeck || handIndex < 0 || handIndex >= currentDeck->getCurrentHand().size()) {
-            return false;
-        }
-
-        Card* card = currentDeck->getCurrentHand()[handIndex];
-        if (currentElixir < card->getCost()) {
-            return false;
-        }
-
-        deductElixir(card->getCost());
-        card->play(*this, board, position);
-        return currentDeck->playCard(card);
-    }
+    bool playCard(int handIndex, BoardPosition position, Board& board);
 
 
     // 圣水扣除方法
@@ -83,16 +53,8 @@ public:
     }
 
     // 更新圣水
-    void update(float deltaTime) {
-        elixirTimer += deltaTime;
-        if (elixirTimer >= 1.0f) {
-            currentElixir = std::min(currentElixir + elixirRegenRate, 10.0f);
-            elixirTimer = 0.0f;
-        }
-    }
+    void update(float deltaTime);
 
     // 添加卡牌到卡牌库
-    void addCardToCollection(Card* card) {
-        collection.push_back(card);
-    }
+    void addCardToCollection(Card* card);
 };

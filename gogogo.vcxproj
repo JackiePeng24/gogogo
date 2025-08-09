@@ -127,9 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Card.cpp" />
+    <ClCompile Include="Deck.cpp" />
     <ClCompile Include="GameRenderer.h" />
     <ClCompile Include="gogogo.cpp" />
     <ClCompile Include="Card.h" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Player.h" />
     <ClCompile Include="Unit.h" />
   </ItemGroup>

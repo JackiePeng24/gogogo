@@ -30,8 +30,10 @@ public:
     bool isWhoseTower() const { return whose; }
 
 
-    // ¹¥»÷ÄÜÁ¦
+    // ¹¥»÷·¶Î§
     int getAttackRange() {return attackRange; }
+
+    // ÉËº¦
     int getDamage() {return damage; }
     
 };

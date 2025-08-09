@@ -1,33 +1,40 @@
 ﻿#pragma once
+#include <iostream>
 #include "Board.h"
 #include "Player.h"
 #include "GameConstants.h"
 #include "Unit.h"
 #include "Tower.h"
-#include <iostream>
+#include "Deck.h"
+#include "Card.h"
 #include <iomanip>
 #include <map>
 
 class ConsoleRenderer {
 public:
     static void render(const Board& board, const Player& currentPlayer) {
-        system("cls"); // Windows清屏
-
         // 渲染玩家信息
         renderPlayerInfo(currentPlayer);
+
+        std::cout << "----------------------------------------\n";
 
         // 渲染棋盘
         renderBoard(board);
 
+        std::cout << "----------------------------------------\n";
+
         // 渲染手牌
         renderHand(currentPlayer);
+
+        std::cout << "----------------------------------------\n";
     }
 
 private:
     static void renderPlayerInfo(const Player& player) {
         std::cout << "玩家: " << player.getName()
+            << " | ID: " << player.getPlayerId()
             << " | 圣水: " << std::fixed << std::setprecision(1)
-            << player.getCurrentElixir()
+            << player.getCurrentElixir() << "/10.0"
             << "\n----------------------------------------\n";
     }
 
@@ -42,11 +49,23 @@ private:
             }
         }
 
+        // 渲染塔
+        const auto& towers = board.getTowers();
+        for (const auto& tower : towers) {
+            if (tower->isAlive()) {
+                char symbol = tower->isKingTower() ? 'K' : 'P';
+                BoardPosition pos = tower->getPosition();
+                if (pos.isValid()) {
+                    grid[pos.row][pos.col] = symbol;
+                }
+            }
+        }
+
         // 渲染单位
         const auto& units = board.getUnits();
         for (const auto& unit : units) {
             if (unit->isAlive()) {
-                char symbol = '?';
+                char symbol = 'M';
                 if (unit->getName() == "Knight") symbol = 'K';
                 else if (unit->getName() == "Archer") symbol = 'A';
 
@@ -54,18 +73,6 @@ private:
                 symbol = unit->getOwner() == 1 ? symbol : tolower(symbol);
 
                 BoardPosition pos = unit->getPosition();
-                if (pos.isValid()) {
-                    grid[pos.row][pos.col] = symbol;
-                }
-            }
-        }
-
-        // 渲染塔
-        const auto& towers = board.getTowers();
-        for (const auto& tower : towers) {
-            if (tower->isAlive()) {
-                char symbol = tower->isKingTower() ? '♔' : '♖';
-                BoardPosition pos = tower->getPosition();
                 if (pos.isValid()) {
                     grid[pos.row][pos.col] = symbol;
                 }

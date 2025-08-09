@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <vector>
 #include <memory>
 #include <algorithm>
@@ -63,12 +64,12 @@ private:
 
         auto potentialTargets = getUnitsInRange(unit->getPosition(), unit->getAttackRange());
         Unit* closest = nullptr;
-        float minDist = std::numeric_limits<float>::max();
+        int minDist = std::numeric_limits<int>::max();
         int owner = unit->getOwner();
 
         for (auto* enemy : potentialTargets) {
             if (enemy->getOwner() != owner) {
-                float dist = unit->getPosition().distance(enemy->getPosition());
+                int dist = unit->getPosition().distance(enemy->getPosition());
                 if (dist < minDist) {
                     minDist = dist;
                     closest = enemy;
@@ -83,14 +84,14 @@ private:
         if (!unit || !unit->isAlive()) return nullptr;
 
         Tower* closest = nullptr;
-        float minDist = std::numeric_limits<float>::max();
+        int minDist = std::numeric_limits<int>::max();
         int owner = unit->getOwner();
 
         for (auto& tower : towers) {
             if (!tower->isAlive() || tower->isWhoseTower() == owner)
                 continue;
 
-            float dist = unit->getPosition().distance(tower->getPosition());
+            int dist = unit->getPosition().distance(tower->getPosition());
             if (dist < minDist) {
                 minDist = dist;
                 closest = tower.get();
@@ -157,12 +158,19 @@ public:
     bool isGameActive() const { return gameActive; }
 
     void addUnit(std::unique_ptr<Unit> unit) {
-        if (!gameActive) return;
+        if (!gameActive) {
+            std::cout << "ERROR: Game is not active!" << std::endl;
+            return;
+        }
+        std::cout << "Adding unit: " << unit->getName()
+            << " | HP: " << unit->getHP()
+            << " | Position: (" << unit->getPosition().row << "," << unit->getPosition().col << ")"
+            << std::endl;
         units.push_back(std::move(unit));
     }
 
     // 获取所有攻击范围内的敌方单位
-    std::vector<Unit*> getUnitsInRange(BoardPosition center, float radius, int allyOwner = -1) const {
+    std::vector<Unit*> getUnitsInRange(BoardPosition center, int radius, int allyOwner = -1) const {
         std::vector<Unit*> result;
         for (auto& unit : units) {
             if (unit->isAlive() && unit->getPosition().distance(center) <= radius * radius &&
@@ -176,16 +184,13 @@ public:
     void update(float deltaTime) {
         if (!gameActive) return;
 
-        assignTargets();
-
         for (auto& unit : units) {
             unit->update(deltaTime);
         }
 
+        assignTargets();
         updateTowers(deltaTime);
-
         removeDeadUnits();
-
         checkGameEnd();
     }
 };

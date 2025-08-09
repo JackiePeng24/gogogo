@@ -1,4 +1,5 @@
 #pragma once
+#include<iostream>
 #include<unordered_map>
 #include "BoardPosition.h"
 
@@ -6,7 +7,7 @@ class Unit {
 protected:
     std::string name;
     int hp;
-    int maxHp = hp;
+    int maxHp;
     int damage;
     float attackSpeed;
     float moveSpeed;
@@ -22,15 +23,14 @@ protected:
 
     float moveRemainder = 0.0f;
 
-    virtual int calculateDamage() const { return damage; }
+    int calculateDamage() const { return damage; }
 
 public:
-    Unit(std::string unitName, int health, int dmg, float atkSpeed, float mvSpeed, int range,int Id)
-        : name(unitName), hp(health), damage(dmg), attackSpeed(atkSpeed),
-        moveSpeed(mvSpeed), attackRange(range), ownerId(Id) {
-    }
+    Unit(std::string unitName, int health, int dmg, float atkSpeed, float mvSpeed, int range, int Id)
+        : name(unitName), hp(health), maxHp(health), damage(dmg), attackSpeed(atkSpeed),
+        moveSpeed(mvSpeed), attackRange(range), ownerId(Id) {}
 
-    virtual ~Unit() = default;
+    ~Unit() = default;
     // 基本信息
     std::string getName() const { return name; }
     int getHP() const { return hp; }
@@ -164,6 +164,6 @@ public:
 class Archer : public Unit {
 public:
     Archer(int health, int damage, bool isPlayer1)
-        : Unit("Archer", health, damage, 1.5f, 0.8f, 5, isPlayer1 ? 1 : 2) {
+        : Unit("Archer", health, damage, 0.5f, 0.8f, 5, isPlayer1 ? 1 : 2) {
     }
 };
